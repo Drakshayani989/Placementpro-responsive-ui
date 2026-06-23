@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlacementPro – Modern Placement & Internship Tracker</title>
+    <!-- Google Fonts for Modern SaaS Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet Link -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Global Layout Wrapper -->
+    <div class="app-wrapper">
+        
+        <!-- Navigation Bar (Shared across Landing and Dashboard) -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo" id="nav-logo">PlacementPro</a>
+                <div class="nav-links">
+                    <a href="#features-anchor" id="lnk-features">Features</a>
+                    <a href="#app-anchor" class="btn-nav-cta" id="btn-launch-nav">Get Started</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ==========================================================================
+           1. LANDING PAGE VIEW
+           ========================================================================== -->
+        <div id="landing-page-view">
+            <!-- Hero Section -->
+            <header class="hero-section">
+                <div class="hero-container">
+                    <span class="badge-hero">Built for Career-Driven Students</span>
+                    <h1>Land your dream offer.<br><span class="text-gradient">Track the journey.</span></h1>
+                    <p class="hero-subtitle">Stop managing your professional future out of chaotic spreadsheets. Track applications, schedule interviews, and visualize analytics automatically inside a high-converting workspace layout.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" id="btn-hero-start">Start Tracking Free</button>
+                        <a href="#features-anchor" class="btn btn-secondary btn-lg">See How It Works</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Features Grid Section -->
+            <section class="features-section" id="features-anchor">
+                <div class="section-header">
+                    <h2>Everything you need to scale your conversion pipeline</h2>
+                    <p>Designed with clean simplicity to help you emphasize system metrics over clerical overhead data tracking operations.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>SaaS Application Pipeline</h3>
+                        <p>Render interactive status card logs containing clean indicators built specifically to organize job applications dynamically.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Real-time Statistics Analytics</h3>
+                        <p>Keep parameters closely updated automatically tracking selection outcomes, submission volumes, and systemic rejections metrics loops.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h3>Instant Fuzzy Search Queries</h3>
+                        <p>Locate application logs tracking metrics instantly matching parameters by target company typing queries live.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==========================================================================
+           2. APP TRACKER WORKSPACE APPLICATION CORE VIEW
+           ========================================================================== -->
+        <div id="app-workspace-view" class="app-view-container">
+            <main class="main-container" id="app-anchor">
+                
+                <!-- Dashboard Summary Row Section -->
+                <section class="stats-section">
+                    <div class="stat-card">
+                        <h3>Total Applications</h3>
+                        <p id="total-apps">0</p>
+                    </div>
+                    <div class="stat-card stat-selected">
+                        <h3>Total Selected</h3>
+                        <p id="total-selected">0</p>
+                    </div>
+                    <div class="stat-card stat-rejected">
+                        <h3>Total Rejected</h3>
+                        <p id="total-rejected">0</p>
+                    </div>
+                </section>
+
+                <!-- Two Column Working Split Grid Layout -->
+                <div class="content-grid">
+                    
+                    <!-- Left Split Grid Space Side: Add Form Field Modules Container -->
+                    <section class="form-section">
+                        <div class="card">
+                            <h2>Add New Application</h2>
+                            <form id="app-form">
+                                <div class="form-group">
+                                    <label for="company-name">Company Name</label>
+                                    <input type="text" id="company-name" placeholder="e.g. Stripe, Microsoft" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="job-role">Role / Position</label>
+                                    <input type="text" id="job-role" placeholder="e.g. Frontend Developer Intern" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="job-status">Application Status</label>
+                                    <select id="job-status" required>
+                                        <option value="Applied">Applied</option>
+                                        <option value="Interview">Interview</option>
+                                        <option value="Selected">Selected</option>
+                                        <option value="Rejected">Rejected</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="btn-submit">Add Application</button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Right Split Grid Side: Toolbar Filter Searching and Pipeline Active Output Display Logs Cards Grid -->
+                    <section class="list-section">
+                        <!-- Instantly filter application lists using typing inputs queries indicators strings -->
+                        <div class="search-container">
+                            <input type="text" id="search-input" placeholder="Type instantly to search logs by company name...">
+                        </div>
+
+                        <!-- Live Container Target Render Node -->
+                        <div id="apps-container" class="apps-grid">
+                            <!-- Populated on live update execution loops via JavaScript script parsing mechanics -->
+                        </div>
+                        
+                        <!-- Dynamic Fallback State Indicator UI Placeholder element view -->
+                        <div id="empty-state" class="empty-state hidden">
+                            <p>No logged job tracking elements match your specified search criteria.</p>
+                        </div>
+                    </section>
+
+                </div>
+            </main>
+        </div>
+
+        <!-- Cohesive App System Sticky Footer UI Layout -->
+        <footer class="app-footer">
+            <div class="footer-container">
+                <p>&copy; 2026 PlacementPro Tracker Platform. Structured for technical interview validation tasks.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Core Interactive Execution Routing Script Engine Application Initialization Link -->
+    <script src="script.js"></script>
+</body>
+</html>

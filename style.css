@@ -1,0 +1,548 @@
+/* ==========================================================================
+   GLOBAL SYSTEM ARCHITECTURE VARIABLES & ROOT ROOT CONFIGURATIONS
+   ========================================================================== */
+:root {
+    --primary-color: #2563EB;     /* Blue Theme Indicator */
+    --success-color: #22C55E;     /* Green Metric Token */
+    --danger-color: #EF4444;      /* Red Metric Token */
+    --warning-color: #F59E0B;     /* Orange State Drop Token */
+    --bg-color: #F8FAFC;          /* Clean soft slate neutral base */
+    --card-bg: #FFFFFF;
+    --text-main: #0F172A;         /* Slate 900 typography dark weight focus */
+    --text-muted: #64748B;        /* Slate 500 secondary alignment focus */
+    --border-color: #E2E8F0;
+    
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.05), 0 10px 10px -5px rgba(15, 23, 42, 0.02);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Base Wrapper Matrix Setup to scale footer layout gracefully layout controls */
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   SHARED INTEGRATED APP UTILITY NAVBAR NAVIGATION
+   ========================================================================== */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--text-main);
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.03em;
+}
+
+.logo:hover {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links .btn-nav-cta {
+    background-color: var(--text-main);
+    color: #FFFFFF;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.nav-links .btn-nav-cta:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   SaaS LANDING PAGE STYLING LAYOUT STRUCTURE
+   ========================================================================== */
+.hero-section {
+    padding: 6rem 1rem 5rem 1rem;
+    background: radial-gradient(120% 120% at 50% 10%, #FFFFFF 40%, #EFF6FF 100%);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.badge-hero {
+    display: inline-block;
+    background-color: rgba(37, 99, 235, 0.08);
+    color: var(--primary-color);
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    color: #0F172A;
+    margin-bottom: 1.5rem;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Standardized Shared Button Configurations Base UI */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-lg {
+    padding: 0.875rem 2.25rem;
+    font-size: 1.05rem;
+    border-radius: var(--radius);
+}
+
+.btn-primary { background-color: var(--primary-color); color: #FFFFFF; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25); }
+.btn-primary:hover { background-color: #1D4ED8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3); }
+
+.btn-secondary { background-color: #FFFFFF; color: var(--text-main); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
+.btn-secondary:hover { background-color: var(--bg-color); border-color: var(--text-muted); transform: translateY(-2px); }
+
+/* SaaS Marketing Value Proposition Feature Grid blocks */
+.features-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 1rem;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 4rem auto;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-sm);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.bg-blue-alpha { background-color: rgba(37, 99, 235, 0.08); }
+.bg-green-alpha { background-color: rgba(34, 197, 94, 0.08); }
+.bg-orange-alpha { background-color: rgba(245, 158, 11, 0.08); }
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.975rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   APP CONTAINER HOUSING TRACKER SYSTEM ACTIONS VIEW PANELS
+   ========================================================================== */
+.app-view-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2.5rem 1rem;
+}
+
+.main-container {
+    animation: fadeInApp 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInApp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .content-grid { grid-template-columns: 360px 1fr; }
+}
+
+/* Dashboard summary counts row blocks design components */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-card h3 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.stat-card p {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.stat-card.stat-selected { border-left-color: var(--success-color); }
+.stat-card.stat-rejected { border-left-color: var(--danger-color); }
+
+/* CRUD Input management card form element design specifications */
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: #FFFFFF;
+    font-family: inherit;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background-color: #1D4ED8;
+    transform: translateY(-1px);
+}
+
+/* Instant Search Input Field Styles mapping constraints */
+.search-container {
+    margin-bottom: 1.5rem;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.975rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    background-color: var(--card-bg);
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Real-time Dynamic Cards Pipeline grid output targets */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.app-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.app-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(15, 23, 42, 0.15);
+}
+
+.app-card-details h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.app-card-details p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+}
+
+.app-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+/* Pill design badges mapping color configuration tokens logic */
+.badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.badge-applied { background-color: rgba(37, 99, 235, 0.08); color: var(--primary-color); }
+.badge-interview { background-color: rgba(245, 158, 11, 0.08); color: var(--warning-color); }
+.badge-selected { background-color: rgba(34, 197, 94, 0.08); color: var(--success-color); }
+.badge-rejected { background-color: rgba(239, 68, 68, 0.08); color: var(--danger-color); }
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.btn-delete:hover {
+    color: var(--danger-color);
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* Fallback verification structural empty states view logs blocks */
+.empty-state {
+    background-color: var(--card-bg);
+    border: 2px dashed var(--border-color);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   PERSISTENT COHESIVE SYSTEM STRUCTURAL FOOTER BLOCKS
+   ========================================================================== */
+.app-footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 1rem;
+    margin-top: auto;
+    text-align: center;
+}
+
+.footer-container p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   MOBILE VIEWPORT RESPONSIVE RENDERING OVERRIDES
+   ========================================================================== */
+@media (max-width: 640px) {
+    .hero-section h1 { font-size: 2.3rem; }
+    .hero-subtitle { font-size: 1.05rem; }
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a:not(.btn-nav-cta) { display: none; } /* Focus real estate into CTA element boundaries */
+}
